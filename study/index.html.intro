@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Interview Practice</title>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="style.css" />
+	<script>
+	$(function() {
+		$("setting-wrap").click(function() {
+				this.addClass("settingsAnimate")
+		});
+	});
+	</script>
+</head>
+<body>
+	<div class="magic">
+		<div class="header">
+			<div class="logo">
+				INTERVIEW PRACTICE-O-MATIC 9000
+			</div>
+			<a class="setting-wrap" href="">
+				<div class="setting">
+					<i class="fa fa-cog"></i>
+				</div> 
+			</a>
+		</div>
+		<div class="content">
+			<div class="intro">
+				<p>Hello there! This app simulates real-life technical interviews to help you prepare for your next job.</p>
+			</div>
+			<div class="info">
+				<p>There'll be a variety of programming and behavioral questions. Check out the settings to configure the questions you'll get. </p>
+
+			</div>
+		</div>
+		<div class="footer">
+			<div class="tip">
+				TIP: YOLO
+			</div>
+
+			<div class="button-bottom-wrapper">
+				<a class="button-bottom" href="#next">
+					NEXT <i class="fa fa-angle-double-right"></i>
+				</a>
+			</div>	
+		</div>
+	</div>
+	<div class="copyright">
+		<p>This was written by <a href="http://edward.io">Edward</a> using Angular.js and Flask.py. <a href="#">Fork</a></p>
+
+	</div>
+</body>
+</html>

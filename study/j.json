@@ -1,0 +1,78 @@
+[
+{
+    "id": 0,
+    "question": "How do you find middle element of a linked list in single pass?",
+    "example": "test<pre>list = [0 5 6 7 8] returns 6</pre>ing",
+    "hints": [ "First, find the simple solution that doesn't require one pass."],
+    "answer": "Use two pointers, one of them incrementing one step at a time and the other incrementing two steps at a time."
+},
+{
+    "id": 1,
+    "question": "How do you find if there is any loop in a singly linked list? ",
+    "example": "Ptr1->Ptr2->Ptr3->Ptr4->Ptr2->Ptr5 there exists a loop from Ptr2->Ptr->3->Ptr4->Ptr2",
+    "hints": [ "You do not need to copy the linked list into a new one."],
+    "answer": "Possible answer: Have two pointers, one that increments twice. If they meet, then there is a loop."
+},
+{
+    "id": 2,
+    "question": "Implement square root function.",
+    "example": "sqrt(4) = 2. sqrt(255) = 15.97",
+    "hints": [ "Draw out a number line, and see how sqrt bisects this line.","This problem can be broken in to a binary search."],
+    "answer": "Possible answer: <pre>\n    double mysqrt(double x)\n{\n  assert(x >= 0);\n \n  if (x < 1){\n    double xinv = 1 / x;\n    double xinv_sqrt = mysqrt(xinv);\n    return 1 / xinv_sqrt;\n  }\n \n  double upperBound = x;\n  double lowerBound = 0; \n  double val = x / 2;\n \n  while (abs(val * val - x) > 0.00000001){\n    if (val * val > x){\n      upperBound = val;\n    }\n    else{\n      lowerBound = val;\n    }\n \n    val = (upperBound + lowerBound) / 2; \n  }\n   \n  return val;\n}\n</pre>"
+},
+{
+    "id": 3,
+    "question": "You are given a list of n numbers from 1 to n-1, with one of the numbers repeated. Devise a method to determine which number is repeated.",
+    "example": "List = [0, 1, 2, 3, 3, 4]. Return 3",
+    "hints": [ "This problem exploits a mathematical property of summation of numbers.","How do you find the sum of 1...n-1?"],
+    "answer": "The sum of the numbers 1 to n-1 is (n)(n-1)/2. Add the numbers on the list, and subtract (n)(n-1)/2. The result is the number that has been repeated."
+},
+{
+    "id": 4,
+    "question": "Devise an algorithm for detecting whether a given string is a palindrome (spelled the same way forwards and backwards).",
+    "example": "\"A man, a plan, a canal, Panama\" returns true. \"Potato cat\" returns false",
+    "hints": [ "Strip off punctuation and spaces before processing the text."],
+    "answer": "Create two pointers. Set one at the beginning of the string, and one at the end. Compare the values at those locations. If the values don't match, the string isn't a palindrome. Otherwise, move each pointer inward and repeat the comparison. Stop when the pointers are pointing to the same position in the string (if its length is an odd-number) or when the pointers have \"crossed\" (if the string's length is an even-number)."
+},
+{
+    "id": 5,
+    "question": "Write a program that prints the numbers from 1 to 100. But for multiples of three print .Fizz. instead of the number and for the multiples of five print .Buzz.. For numbers which are multiples of both three and five print .FizzBuzz.",
+    "hints": [ "What's a good way to detect for multiples of a number?"],
+    "answer": "Possible answer:\n    <pre>\n    for x in range(100):\n        if x%3==0 and x%5==0:\n      print 'FizzBuzz'\n        elif x%3==0:\n          print 'Fizz'\n        elif x%5==0:\n          print 'Buzz'\n        else:\n          print x\n    </pre>\n"
+},
+{
+    "id": 6,
+    "question": "Write a method that finds the maximum of two numbers, without using if/else or other comparison operator.",
+    "example":"Input: 6, 25.\nOuput: 25",
+    "hints": [ "Start with something simple, then alter it until it no longer uses if statements.","Bitwise operations may help."],
+    "answer": "Possible answer: Given input (a,b), c = (a-b) >> 31 & 0x1. This returns 1 if the number is negative and 0 if positive. return a-c*(a-b)."
+},
+{
+    "id": 7,
+    "question": "Write a function that swaps a number in place without using temporary variables.",
+    "example":"Input: 123,345. Output: 345, 123.",
+    "hints": [ "First write the solution with temporary variables.", "Is there an operation that can store both a and b and retrieve the result?"],
+    "answer": "Possible answer: a = a^b; b = a^b; a = a^b. Return (a,b)"
+},
+{
+    "id": 8,
+    "question": "Write a function that swaps a number in place without using temporary variables.",
+    "example":"Input: 123,345. Output: 345, 123.",
+    "hints": [ "First write the solution with temporary variables.", "Is there an operation that can store both a and b and retrieve the result?"],
+    "answer": "Possible answer: a = a^b; b = a^b; a = a^b. Return (a,b)"
+},
+{
+    "id": 9,
+    "question": "Write an algorithm to decide if two strings are anagrams or not.",
+    "example":"Input: ['tar', 'rat']. Output: true",
+    "hints": [ "What special characteristics do anagrams have that other strings don't have?", "Is there an operation that can store both a and b and retrieve the result?"],
+    "answer": "Possible answer:return sort(a) == sort(b). Or create two arrays of 255 length, and loop through each string and add the character count to the array, then compare the two arrays."
+},
+{
+    "id": 10,
+    "question": "Write an algorithm to decide if a string is a substring of another string.",
+    "example":"Input: ['cat', 'caterpillar']. Output: true",
+    "hints": [ "What about the case Input: 'car', 'caterpillar'? Does your algorithm trip up on that?"],
+    "answer": "Iterate through every letter in the larger string, checking if it matches the first letter in the substring. If it does, mark the place and check if the second letter matches the next character, etc. If one of them doesn't match, then go back to the place you marked and go to the next character."
+}
+]

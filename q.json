@@ -1,0 +1,73 @@
+[
+{
+        "id": 0,
+                "question": "How do you find middle element of a linked list?",
+                "example": "list = [0 5 6 7 8] returns 6",
+                "hints": [ "How do you usually find the middle element of an ordered collection?"],
+                "answer": "Use two pointers, one of them incrementing one step at a time and the other incrementing two steps at a time. The slow one will be at the middle when the fast one gets to the end.\n\n-Or-\n\nLoop through the linked list to get its length, then interate over it again till half the length to get the middle element."
+},
+{
+        "id": 1,
+        "question": "How do you find if there is a loop in a singly linked list? ",
+        "example": "In the linked list\nPtr1->Ptr2->Ptr3->Ptr4->Ptr2\nthere exists a loop.\n(Ptr2->Ptr->3->Ptr4->Ptr2)",
+        "hints": [ "You don't need to copy the linked list into a new one."],
+        "answer": "Have two pointers, one that increments one step at a time and another that increments twice as fast. If they ever meet, then there is a loop."
+},
+{
+        "id": 2,
+        "question": "Implement the square root function. You can assume your inputs will be > 1.",
+        "example": "sqrt(4) = 2. sqrt(255) = 15.97",
+        "hints": [ "Think \"guess and check\".","This problem uses binary search."],
+        "answer": "Binary search for the square root. You know the answer must be between zero and the input. Square the number halfway between zero and the input and check how it compares to your input. If it's bigger then you know the answer must be above that halfway point. If it's smaller then it must be below that point. Each time you do this you cut down where the square root can be in half. Repeat until your interval is small enough."
+},
+{
+        "id": 3,
+        "question": "You are given a list of n numbers from 1 to n-1, with one of the numbers repeated. Determine which number is repeated.",
+        "example": "List = [0, 3, 2, 1, 3, 4] returns 3",
+        "hints": [ "This problem exploits a mathematical property of the summation of numbers.","How do you find the sum of 1,2,3...n-2,n-1?"],
+        "answer": "The sum of the numbers 1 to n-1 is (n)(n-1)/2. Add the numbers on the list, and subtract (n)(n-1)/2. The result is the number that has been repeated."
+},
+{
+        "id": 4,
+        "question": "Devise an algorithm for detecting whether a given string is a palindrome (spelled the same way forwards and backwards).",
+        "example": "\"A man, a plan, a canal, Panama\" returns true. \"Potato cat\" returns false",
+        "hints": [ "Strip off punctuation and spaces before processing the text."],
+        "answer": "Create two pointers. Set one at the beginning of the string, and one at the end. Move the pointers toward eachother until they both point to (non punctual) characters. Compare the values at those locations. If the values don't match, the string isn't a palindrome. Otherwise, move each pointer inward and repeat the comparison. Stop when the pointers are pointing to the same position in the string (if its length is an odd-number) or when the pointers have \"crossed\" (if the string's length is an even-number)."
+},
+{
+        "id": 5,
+        "question": "Write a program that prints the numbers from 1 to 100. But for multiples of three print \"Fizz\" instead of the number and for the multiples of five print \"Buzz\" For numbers which are multiples of both three and five print \"FizzBuzz\"",
+        "example": "1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, 16, 17, Fizz...",
+        "hints": [ "What's a good way to detect multiples of a number?", "The modulo (%) operator gives the remainder of a division. (7 % 3 = 1)"],
+        "answer": "Loop through all the numbers from 1 to 100. On each iteration check if the number is divisible by 3, 5, or both. You can check if A is divisible by B with the modulo operator (A % B == 0 if A is divisible by B)."
+},
+{
+        "id": 6,
+        "question": "Write a method that finds the maximum of two ints, without using if/else or any other comparison operator.",
+        "example":"Input: 6, 25.\nOuput: 25",
+        "hints": [ "Start with something simple, then alter it until it no longer uses if statements.","Bitwise operations may help."],
+        "answer": "Given input (a,b), c = (a-b) >> 31 & 0x1. This returns 1 if the number is negative and 0 if positive. return a-c*(a-b)."
+},
+{
+        "id": 7,
+        "question": "Swap two numbers in place without using temporary variables.",
+        "example":"Input: 123, 345. Output: 345, 123.",
+        "hints": [ "First write the solution with temporary variables.", "Is there an operation that can store both a and b and retrieve the result?"],
+        "answer": "Possible answer: a = a^b; b = a^b; a = a^b. Return (a,b)"
+},
+{
+        "id": 8,
+        "question": "Write an algorithm to decide if two ascii strings are anagrams or not.",
+        "example":"Input:'tar', 'rat'. Output: true",
+        "hints": [ "What special characteristics do anagrams have that other strings don't have?", "Is there an operation that can store both a and b and retrieve the result?"],
+        "answer": "Possible answer:return sort(a) == sort(b). Or create two arrays of 255 length, and loop through each string and add the character count to the array, then compare the two arrays."
+},
+{
+        "id": 9,
+        "question": "Write an algorithm to decide if a string is a substring of another string.",
+        "example":"Input: 'cat', 'caterpillar'. Output: true",
+        "hints": [ "What about the case Input: 'aaaabb', 'aaaaabb'? Does your algorithm trip up on that?"],
+        "answer": "Iterate through every letter in the larger string, checking if it matches the first letter in the substring. If it does, mark the place and check if the second letter matches the next character, etc. If one of them doesn't match, then go back to the place you marked and go to the next character."
+}
+]
+

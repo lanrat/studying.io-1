@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Interview Practice</title>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="http://codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="vert.css" />
+	<script>
+	// Array Remove - By John Resig (MIT Licensed)
+	Array.prototype.remove = function(from, to) {
+		var rest = this.slice((to || from) + 1 || this.length);
+		this.length = from < 0 ? this.length + from : from;
+		return this.push.apply(this, rest);
+	};
+	</script>
+	<script>
+	$(function() {
+		$.currentQ;
+		var counter = 0;
+
+		$.get("/q.json", function( data ) {
+			randQ = Math.floor(Math.random()*data.length);
+			$('.question').html(data[randQ].question);
+			$('.answer').html(data[randQ].answer);
+			$('.hint').html(data[randQ].hints[0]);
+			$.currentQ = data;
+		});
+		$(".button-hint").click(function() {
+			event.preventDefault;
+			$('.magic').animate({
+				height: "+=150"
+			});
+			$(".h").show(400);
+			$('.button-hint-wrapper').animate({
+				backgroundColor: "#7e7e7e"
+			});
+			counter++;
+			$('.button-hint').unbind();
+				//TODO change color
+			});
+		$(".button-bottom").click(function() {
+			event.preventDefault();
+			answerHeight = $('.magic').height() + $('.ans').height();
+			$('.magic').animate({
+				height: answerHeight
+			});
+			$(".ans").show(400);
+			$('.button-bottom-wrapper').animate({
+				backgroundColor: "#15c7cb"
+			});
+
+			$('.button-bottom').unbind(); 
+			$(".button-bottom").html("Next Question <i class=\"fa fa-angle-double-right\"></i>");
+
+		});
+	});
+</script>
+</head>
+<body>
+	<div class="wrapper">
+    <div class="position">
+		<div class="magic">
+			<div class="header">
+				<div class="logo">
+					INTERVIEW PRACTICE-O-MATIC 9000
+				</div>
+				<a class="setting-wrap" href="">
+					<div class="setting">
+						<i class="fa fa-cog"></i>
+					</div> 
+				</a>
+			</div>
+			<div class="content">
+				<div class="intro">
+					<div class="q">
+						<div class="qheader">Question</div>
+						<p class="question">How do you find middle element of a linked list in single pass? </p>
+
+					</div>
+					<div class="h">
+						<div class="hheader">Hint</div>
+						<p class="hint">First, start with the simple solution on which you traverse the <strong>LinkedList</strong> until you find the tail of linked list where it points to null to find the length of linked list and then reiterating till middle. </p>
+
+					</div>
+					<div class="ans">
+						<div class="ansheader">Answer</div>
+						<p class="answer">Possible solution: use two pointers one incrementing one step at a time and other incrementing two step a time, so when first pointer reaches end of linked second pointer will point to the middle element. </p>
+					</div>
+
+				</div>
+			</div>
+			<div class="footer">
+				<div class="button-hint-wrapper">
+					<a class="button-hint" href="#next">
+						HINT
+					</a>
+				</div>
+				<div class="tip">
+					Tip: Whiteboard your code. <!-- before typing up your solution. --></div>
+
+					<div class="button-bottom-wrapper">
+						<a class="button-bottom" href="/">
+							CHECK ANSWER <i class="fa fa-angle-double-right"></i>
+						</a>
+					</div>	
+				</div>
+			</div>
+		</div>
+</div>
+<!-- 	<div class="copyright">
+		<p>This was written by <a href="http://edward.io">Edward</a> using Angular.js and Flask.py. <a href="#">Fork</a></p>
+	</div>
+-->
+</body>
+</html>
